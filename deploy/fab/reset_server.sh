@@ -15,11 +15,6 @@ python setup.py install
 popd
 echo $rs get taxpuf package
 cd $DEP
-export TAXPUF_CHANNEL="https://conda.anaconda.org/t/$(cat /home/ubuntu/.ospc_anaconda_token)/opensourcepolicycenter"
-conda config --add channels $TAXPUF_CHANNEL
-conda install taxpuf
-rm -rf puf.csv.gz rm puf.csv
-write-latest-taxpuf && gunzip -k puf.csv.gz
 export SUPERVISORD_CONF=/home/ubuntu/deploy/fab/supervisord.conf
 echo $rs stop all
 supervisorctl -c $SUPERVISORD_CONF stop all
